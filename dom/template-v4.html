@@ -1,0 +1,23 @@
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+<div id="app">
+    <p>{{ titulo }}</p> <!-- Valor textual de variavel apresentado pelo  double mustach--> 
+    <p>{{ saudacao() }}</p> <!-- Valor textual vindo de uma função apresentado pelo  double mustach--> 
+    <a v-bind:href="link">Google</a> <!-- Valor link apresentado por uma diretiva V-bind que não precisa do double mustach--> 
+</div>
+
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            titulo: 'Usando VueJS <3 !',
+            link: 'http://google.com.br'
+        },
+        methods: {
+            saudacao: function(){
+                console.log(this)
+                return this.titulo + ' 4'
+            }
+        },
+    })
+</script>
