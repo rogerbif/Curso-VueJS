@@ -1,22 +1,25 @@
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 
 <div id="app">
-    <p>{{ titulo }}</p> <!-- Valor textual de variavel apresentado pelo  double mustach-->
+    <p v-once>{{ titulo }}</p> <!-- v-once mostra apenas a primeira vez não atualziando se alterado-->
     <p>{{ saudacao() }}</p> <!-- Valor textual vindo de uma função apresentado pelo  double mustach-->
     <a v-bind:href="link">Google</a> <!-- Valor link apresentado por uma diretiva V-bind que não precisa do double mustach-->
+    <hr>
+    <p v-html="linkHTML"></p> <!-- v-jtml interpreta html formatado-->
 </div>
 
 <script>
     new Vue({
         el: '#app',
         data: {
-            titulo: 'Usando VueJS <3 !',
-            link: 'http://google.com.br'
+            titulo: 'Usando VueJS V5 !',
+            link: 'http://google.com.br',
+            linkHTML: '<a href="http://google.com.br">Google</a>'
         },
         methods: {
             saudacao: function () {
-                console.log(this)
-                return this.titulo + ' 4'
+                this.titulo = 'Bom dia!!!'
+                return this.titulo
             }
         },
     })
