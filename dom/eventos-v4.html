@@ -1,0 +1,40 @@
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+<div id="app">
+    <p>{{ contador }}</p><!-- ctrl + D = altera todos os campos ao mesmo tempo no Code-->
+    <button v-on:click="somar(5, $event)">Somar 1</button> <!-- v-on: chama a função em um evento click por exemplo -->
+    <p v-on:mousemove="atualizarXY">
+        Mouse: {{ x }} e {{ y }}
+        <!-- <span v-on:mousemove="parar">PARAR AQUI!!!!</span> -->
+        <span v-on:mousemove.stop>PARAR AQUI!!!!</span>
+    </p>
+    <!-- <a v-on:click.prevent="" href="http://google.com">Google</a>  prevent previne o comportamento padrão -->
+    <a v-on:click="naoNavegar" href="http://google.com">Google</a> <!-- prevent previne o comportamento padrão -->
+</div>
+
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            contador: 0,
+            x: 0,
+            y: 0,
+        },
+        methods: {
+            somar(passo, ev) {
+                console.log(passo, ev)
+                this.contador += passo
+            },
+            atualizarXY(event){
+                this.x = event.clientX
+                this.y = event.clientY
+            },
+            naoNavegar(e){
+                e.preventDefault()
+            },
+            // parar(e){
+            //     e.stopPropagation()
+            // }
+        },
+    })
+</script>
