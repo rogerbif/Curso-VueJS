@@ -1,0 +1,23 @@
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+<div id="app">
+    <p>{{ contador }}</p><!-- valor normal -->
+    <p>{{ contador * 2 }}</p><!-- pode ter expressão dentro do double mustache -->
+    <p>{{ contador > 10 ? 'Maior que 10' : 'Menor que 10' }}</p><!-- pode usar operadr ternário -->
+    <button v-on:click="somar">Somar 1</button> <!--  -->
+    
+</div>
+
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            contador: 0,
+        },
+        methods: {
+            somar() {
+                this.contador++
+            },
+        },
+    })
+</script>

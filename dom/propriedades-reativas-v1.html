@@ -1,0 +1,24 @@
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+<div id="app">
+    <p>{{titulo}}</p>
+    <!-- <input type="text" v-bind:value="titulo" v-on:input="titulo = $event.target.value"> Two way data binding-->
+    <input type="text" v-model="titulo"> <!-- Two way data binding-->
+    <!-- 
+        v-bind:value="titulo" -- Atualiza dados do HTML no JS
+        v-on:input="titulo = $event.target.value -- Atualiza dados do JS no HTML
+        v-model="titulo" -- Atualiza dados em ambos HTML e JS
+    -->
+</div>
+
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            titulo: 'Usando VueJS <3 !'
+        },
+        methods: {
+
+        },
+    })
+</script>
