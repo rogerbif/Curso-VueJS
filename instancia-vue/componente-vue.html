@@ -1,0 +1,40 @@
+
+<meta charset="UTF-8">
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+<div id="app">
+    <comp></comp>
+</div>
+
+<script>
+    Vue.component('comp', {
+        template: `
+            <div>
+                <h1>{{ aula }}</h1>
+                <h2>{{ modulo }}</h2>
+                <button @click="alterarAula">Alterar Aula</button>
+                <button @click="alterarModulo">Alterar Módulo</button>
+            </div>
+        `, //tem algumas desvantagens
+        data: function() { //para funcionar o "data" do componente ele precisa ter estrutura de função com return
+            return {
+                aula: 'Aula: Monstando Instancia VUE',
+                modulo: 'Módulo: Instância Vue'  
+            }
+        },
+        methods: {
+            alterarAula() {
+                this.aula += '#'
+            },
+            alterarModulo() {
+                this.modulo += '#'
+            },
+        },
+    })
+
+    const vm = new Vue({
+        el: '#app',
+        //el: 'comp', //monstando apontando para comp <comp></comp>
+        //el: '.comp', //monstando apontando para <div class="comp"
+    })
+</script>
