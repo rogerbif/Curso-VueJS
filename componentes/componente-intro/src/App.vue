@@ -1,18 +1,13 @@
 <template>
   <div id="app">
-    <h1>Contadores</h1>
-    <app-contador></app-contador>
-    <app-contador></app-contador>
-    <app-contador></app-contador>
+    <app-contadores></app-contadores>
+    <button>?</button>
   </div>
 </template>
 
 <script>
-export default {
-  
-}
+export default {};
 </script>
 
 <style>
-
 </style>
