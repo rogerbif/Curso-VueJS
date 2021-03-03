@@ -2,12 +2,20 @@
 	<div id="app">
 		<h1>Filtros & Mixins</h1>
 		<hr>
-		<p>{{ cpf | cpf | inverter }}</p>
+		<p>{{ cpfDoAluno | cpf | inverter }}</p>
+		<input type="text" :value="cpfDoAluno | cpf">
+		<hr>
+		<Frutas />
 	</div>
 </template>
 
 <script>
+import Frutas from './Frutas.vue'
+import frutasMixin from './frutasMixin'
+
 export default {
+	components: { Frutas },
+	mixins: [ frutasMixin ],
 	filters: {
 		cpf(valor){
 			const arr = `${valor}`.split('') //`${valor}` transforma o valor para string
@@ -19,7 +27,7 @@ export default {
 	},
 	data() {
 		return {
-			cpf: '99673231087'
+			cpfDoAluno: '99673231087'
 		}
 	},
 }
@@ -33,6 +41,10 @@ export default {
 	text-align: center;
 	color: #2c3e50;
 	margin-top: 60px;
+	font-size: 2.5rem;
+}
+
+input {
 	font-size: 2.5rem;
 }
 </style>
