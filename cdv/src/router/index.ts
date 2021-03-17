@@ -5,6 +5,10 @@ import store from '../store';
 import TopStories from '../views/TopStories.vue';
 import CodeExamples from '../views/CodeExamples.vue';
 import MyFavorites from '../views/MyFavorites.vue';
+import Customers from '../views/Customers.vue';
+import Products from '../views/Products.vue';
+import Sell from '../views/Sell.vue';
+import Sales from '../views/Sales.vue';
 
 Vue.use(Router);
 
@@ -25,6 +29,30 @@ const router = new Router({
       name: 'top-stories',
       component: TopStories,
       meta: new RouteMeta({ title: 'Top Stories' })
+    },
+    {
+      path: '/customers',
+      name: 'customers',
+      component: Customers,
+      meta: new RouteMeta({ title: 'Clientes' })
+    },
+    {
+      path: '/products',
+      name: 'products',
+      component: Products,
+      meta: new RouteMeta({ title: 'Produtos' })
+    },
+    {
+      path: '/sales',
+      name: 'sales',
+      component: Sales,
+      meta: new RouteMeta({ title: 'Vendas' })
+    },
+    {
+      path: '/sell',
+      name: 'sell',
+      component: Sell,
+      meta: new RouteMeta({ title: 'Venda Rápida' })
     },
     {
       path: '/code-examples',
