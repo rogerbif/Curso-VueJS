@@ -26,8 +26,8 @@ const router = new Router({
   routes: [
     {
       path: '/',
-      name: 'top-stories',
-      component: TopStories,
+      name: 'my-favorites',
+      component: MyFavorites,
       meta: new RouteMeta({ title: 'Top Stories' })
     },
     {

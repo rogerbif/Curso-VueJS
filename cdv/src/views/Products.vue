@@ -21,7 +21,7 @@
     newsArticles: NewsArticle[] = [];
 
     mounted() {
-      newsService.getArticlesByType(ArticleType.CodeExample)
+      newsService.getArticlesByType(ArticleType.Products)
         .then((newsArticles: NewsArticle[]) => {
           this.newsArticles = newsArticles;
         });

@@ -30,12 +30,17 @@
     <v-app-bar
       app
       fixed
-      dark
-      color="primary"
     >
       <v-app-bar-nav-icon @click.stop="toggleMenu"></v-app-bar-nav-icon>
 
+      <v-spacer></v-spacer>
+
       <v-toolbar-title>{{ title }}</v-toolbar-title>
+      
+      <v-spacer></v-spacer>
+
+      <v-switch v-model="$vuetify.theme.dark">
+      </v-switch>
 
     </v-app-bar>
 
