@@ -1,12 +1,6 @@
 <template>
   <div>
-
-    <v-navigation-drawer
-      app
-      fixed
-      v-model="showMenu"
-
-    >
+    <v-navigation-drawer app fixed v-model="showMenu">
       <v-list dense>
         <v-list-item @click="doNothing">
           <v-list-item-action>
@@ -27,42 +21,39 @@
       </v-list>
     </v-navigation-drawer>
 
-    <v-app-bar
-      app
-      fixed
-    >
-      <v-app-bar-nav-icon @click.stop="toggleMenu"></v-app-bar-nav-icon>
+    <v-app-bar app fixed>
+          <v-app-bar-nav-icon @click.stop="toggleMenu"></v-app-bar-nav-icon>
 
-      <v-spacer></v-spacer>
+          <v-spacer></v-spacer>
 
-      <v-toolbar-title>{{ title }}</v-toolbar-title>
-      
-      <v-spacer></v-spacer>
+          <v-toolbar-title>{{ title }}</v-toolbar-title>
 
-      <v-switch v-model="$vuetify.theme.dark">
-      </v-switch>
+          <v-spacer></v-spacer>
 
+          <v-switch
+            v-model="$vuetify.theme.dark"
+            inset
+            color="dark"
+          >
+          </v-switch>
     </v-app-bar>
-
   </div>
 </template>
 
 <script lang="ts">
-  import { Component, Vue } from 'vue-property-decorator';
-  import { Getter } from 'vuex-class';
+import { Component, Vue } from "vue-property-decorator";
+import { Getter } from "vuex-class";
 
-  @Component
-  export default class TopToolbar extends Vue {
-    @Getter("title", { namespace: 'topToolbar' }) title!: string;
+@Component
+export default class TopToolbar extends Vue {
+  @Getter("title", { namespace: "topToolbar" }) title!: string;
 
-    showMenu: boolean = false;
+  showMenu: boolean = false;
 
-    toggleMenu(): void {
-      this.showMenu = !this.showMenu;
-    }
-
-    doNothing(): void {
-
-    }
+  toggleMenu(): void {
+    this.showMenu = !this.showMenu;
   }
+
+  doNothing(): void {}
+}
 </script>

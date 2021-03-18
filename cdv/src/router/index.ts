@@ -9,6 +9,8 @@ import Customers from '../views/Customers.vue';
 import Products from '../views/Products.vue';
 import Sell from '../views/Sell.vue';
 import Sales from '../views/Sales.vue';
+import NoCustomers from '../views/NoCustomers.vue';
+import Home from '../views/Home.vue';
 
 Vue.use(Router);
 
@@ -26,9 +28,9 @@ const router = new Router({
   routes: [
     {
       path: '/',
-      name: 'my-favorites',
-      component: MyFavorites,
-      meta: new RouteMeta({ title: 'Top Stories' })
+      //name: 'no-customers',
+      component: Home,
+      meta: new RouteMeta({ title: 'Controle de Vendas' })
     },
     {
       path: '/customers',

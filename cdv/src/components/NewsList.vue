@@ -4,7 +4,7 @@
     <v-container fluid grid-list-lg>
       <v-layout row wrap>
         <v-flex xs12 v-for="newsArticle in newsArticles" :key="newsArticle.id">
-          <v-card>
+          <v-card class="mx-auto" max-width="365">
             <v-container fluid grid-list-lg>
               <v-layout row>
                 <v-flex xs9>
