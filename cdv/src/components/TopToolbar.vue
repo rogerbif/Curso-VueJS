@@ -1,5 +1,31 @@
 <template>
   <div>
+    <v-app-bar app fixed dense>
+      <v-app-bar-nav-icon @click.stop="toggleMenu"></v-app-bar-nav-icon>
+      <v-toolbar-title>{{ title }}</v-toolbar-title>
+      <v-spacer></v-spacer>
+      <div v-if="!search">
+        <v-btn icon color="pink" @click="activeSearch">
+          <v-icon>mdi-magnify</v-icon>
+        </v-btn>
+      </div>
+      <div v-else>
+          <v-text-field :label="title" append-icon="mdi-magnify"></v-text-field>
+          <v-btn icon color="pink" @click="activeSearch">
+            <v-icon>mdi-close</v-icon>
+          </v-btn>
+      </div>
+      <div>
+        <v-switch
+          v-model="$vuetify.theme.dark"
+          color="dark"
+          inset
+          hide-details
+          label=""
+        ></v-switch>
+      </div>
+    </v-app-bar>
+
     <v-navigation-drawer app fixed v-model="showMenu">
       <v-list dense>
         <v-list-item @click="doNothing">
@@ -20,23 +46,6 @@
         </v-list-item>
       </v-list>
     </v-navigation-drawer>
-
-    <v-app-bar app fixed>
-          <v-app-bar-nav-icon @click.stop="toggleMenu"></v-app-bar-nav-icon>
-
-          <v-spacer></v-spacer>
-
-          <v-toolbar-title>{{ title }}</v-toolbar-title>
-
-          <v-spacer></v-spacer>
-
-          <v-switch
-            v-model="$vuetify.theme.dark"
-            inset
-            color="dark"
-          >
-          </v-switch>
-    </v-app-bar>
   </div>
 </template>
 
@@ -49,11 +58,16 @@ export default class TopToolbar extends Vue {
   @Getter("title", { namespace: "topToolbar" }) title!: string;
 
   showMenu: boolean = false;
+  search: boolean = false;
 
   toggleMenu(): void {
     this.showMenu = !this.showMenu;
   }
 
   doNothing(): void {}
+
+  activeSearch(): void {
+    this.search = !this.search;
+  }
 }
 </script>
