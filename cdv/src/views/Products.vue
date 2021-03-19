@@ -1,9 +1,13 @@
 <template>
-
-  <div>
+<v-container fill-height>
+  <div v-if="newsArticles.length">
     <NewsList :newsArticles="newsArticles"></NewsList>
   </div>
-
+    <v-row v-else align="center"
+        justify="center">
+        <v-col><NoProductsComp/></v-col>
+    </v-row>
+</v-container>
 </template>
 
 <script lang="ts">
@@ -11,10 +15,12 @@
   import newsService from '../services/newsService';
   import NewsList from '../components/NewsList.vue';
   import { ArticleType, NewsArticle } from '../types';
+  import NoProductsComp from "../components/NoProductsComp.vue";
 
   @Component({
     components: {
-      NewsList
+      NewsList,
+      NoProductsComp,
     }
   })
   export default class TopStories extends Vue {

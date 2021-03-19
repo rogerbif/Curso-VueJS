@@ -70,5 +70,23 @@
     "baseImageName": "maria",
     "articleType": "CUSTOMERS",
     "isFavourite": false
+  },
+  {
+    "id": 9,
+    "title": "Caneta Preta A",
+    "content": "Uma linda caneta Preta",
+    "dateString": "22 Jan 2019",
+    "baseImageName": "preta",
+    "articleType": "PRODUCTS",
+    "isFavourite": false
+  },
+  {
+    "id": 10,
+    "title": "Caneta Preta B",
+    "content": "Uma linda caneta Preta",
+    "dateString": "22 Jan 2019",
+    "baseImageName": "preta",
+    "articleType": "PRODUCTS",
+    "isFavourite": false
   }
 ]

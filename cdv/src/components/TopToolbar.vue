@@ -4,16 +4,24 @@
       <v-app-bar-nav-icon @click.stop="toggleMenu"></v-app-bar-nav-icon>
       <v-toolbar-title>{{ title }}</v-toolbar-title>
       <v-spacer></v-spacer>
+      <div v-show="search">
+          <v-text-field
+            label="Pesquisar"
+            append-icon="mdi-magnify"
+            hide-details
+          ></v-text-field>
+      </div>
       <div v-if="!search">
         <v-btn icon color="pink" @click="activeSearch">
           <v-icon>mdi-magnify</v-icon>
         </v-btn>
       </div>
-      <div v-else>
-          <v-text-field :label="title" append-icon="mdi-magnify"></v-text-field>
+      <div id="vue" v-else>
+          <div>
           <v-btn icon color="pink" @click="activeSearch">
             <v-icon>mdi-close</v-icon>
           </v-btn>
+        </div>
       </div>
       <div>
         <v-switch
