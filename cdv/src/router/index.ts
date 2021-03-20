@@ -2,14 +2,10 @@ import Vue from 'vue';
 import Router from 'vue-router';
 import store from '../store';
 
-import TopStories from '../views/TopStories.vue';
-import CodeExamples from '../views/CodeExamples.vue';
-import MyFavorites from '../views/MyFavorites.vue';
 import Customers from '../views/Customers.vue';
 import Products from '../views/Products.vue';
 import Sell from '../views/Sell.vue';
 import Sales from '../views/Sales.vue';
-import NoCustomers from '../views/NoCustomers.vue';
 import Home from '../views/Home.vue';
 
 Vue.use(Router);
@@ -55,18 +51,6 @@ const router = new Router({
       name: 'sell',
       component: Sell,
       meta: new RouteMeta({ title: 'Venda Rápida' })
-    },
-    {
-      path: '/code-examples',
-      name: 'code-examples',
-      component: CodeExamples,
-      meta: new RouteMeta({ title: 'Code Examples' })
-    },
-    {
-      path: '/my-favorites',
-      name: 'my-favorites',
-      component: MyFavorites,
-      meta: new RouteMeta({ title: 'Favorites' })
     }
   ]
 });
