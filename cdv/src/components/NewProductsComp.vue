@@ -5,12 +5,16 @@
         <template>
           <v-card class="pa-4 mx-auto" max-width="365" min-height="485">
             <v-form>
+
+              <!-- Aqui é o nome do Produto -->
               <v-text-field
+                v-model="name"
                 label="Nome"
                 placeholder="Nome do Produto"
                 required
               ></v-text-field>
 
+              <!-- Aqui é o carrousell de imagems -->
               <v-slide-group multiple show-arrows>
                 <v-slide-item v-slot="{ active, toggle }">
                   <v-card
@@ -76,13 +80,24 @@
                 </v-slide-item>
               </v-slide-group>
 
-              <v-file-input
+              <!-- Esse é um file input precisa estudar como fazer -->
+              <!-- <v-file-input
                 multiple
                 small-chips
                 truncate-length="15"
-              ></v-file-input>
+              ></v-file-input> -->
 
-              <v-text-field
+              <!-- Aqui adiciona o Descrição -->
+              <v-text-field 
+                v-model="description"
+                label="Descrição"
+                placeholder="Informe a descrição"
+                required
+              ></v-text-field>
+
+              <!-- Aqui adiciona o ID -->
+              <v-text-field 
+                v-model="id"
                 label="Código"
                 placeholder="Cód. ou automático"
                 outlined
@@ -90,7 +105,9 @@
                 required
               ></v-text-field>
 
+              <!-- Aqui adiciona o Preço -->
               <v-text-field
+                v-model="price"
                 label="Preço"
                 placeholder="R$ 9,99"
                 required
@@ -102,7 +119,8 @@
                   <v-icon right dark> mdi-plus </v-icon></v-btn
                 >
 
-                <v-btn color="primary" tile>
+                <!-- Aqui chama a função add que salva o item e limpa os campos -->
+                <v-btn color="primary" @click="add" tile>
                   Salvar <v-icon right dark> mdi-cloud-upload </v-icon></v-btn
                 >
               </v-row>
@@ -112,41 +130,43 @@
       </v-layout>
     </v-container>
   </div>
-
-  <!-- <v-form>
-    <v-row>
-      <v-col cols="12" sm="10" md="8" lg="6">
-        <v-text-field
-          label="Nome"
-          placeholder="Nome do Produto"
-          required
-        ></v-text-field>
-
-        <v-text-field
-          label="Código"
-          placeholder="Cód. ou automático"
-          outlined
-          append-icon="mdi-barcode"
-          required
-        ></v-text-field>
-
-        <v-text-field
-          label="Preço"
-          placeholder="R$ 9,99"
-          required
-        ></v-text-field>
-
-        <v-btn color="success" class="mr-4"> Mais campos </v-btn>
-
-        <v-btn color="success" class="mr-4"> Salvar </v-btn>
-      </v-col>
-    </v-row>
-  </v-form> -->
 </template>
 
-<script lang="ts">
-import { Component, Vue } from "vue-property-decorator";
-
-@Component
-export default class NewProductsComp extends Vue {}
+<script>
+export default {
+  data() {
+    return {
+        id: '',
+        name: '',
+        description: '',
+        price: '',
+        dateString: '',
+        baseImageName: '',
+        productType: '',
+        isFavourite: false
+    }
+  },
+  methods: {
+    add(){
+      this.$emit('productAdded', {
+        id: this.id,
+        name: this.name,
+        description: this.description,
+        price: this.price,
+        dateString: new Date(),
+        baseImageName: this.baseImageName,
+        productType: this.productType,
+        isFavourite: false
+      })
+      this.id=''
+      this.name=''
+      this.description=''
+      this.price=''
+      this.dateString=''
+      this.baseImageName=''
+      this.productType=''
+      this.isFavourite=false
+    }
+  }
+}
 </script>

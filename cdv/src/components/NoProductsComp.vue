@@ -18,7 +18,7 @@
             </v-list-item>
 
             <v-card-actions>
-              <v-btn outlined text>
+              <v-btn outlined text :to="{ name: 'products' }">
                 Criar novo produto
                 <v-icon right dark> mdi-plus </v-icon>
               </v-btn>
